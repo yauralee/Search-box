@@ -7,22 +7,25 @@ $(document).ready(function(){
       return reg.test(item.title);
     }).map(function(item){
       return item.title.replace(reg,'<span class="hightlightStyle">$1</span>');
-    })
+    });
     appendBookmarks(selectedData);
   }
 
   $("#keywordInput").bind("input propertychange",function(){
+     var self = this;
      $.ajax({
        url:"bookmarks.json",
        type:"get",
        dataType:"json",
        success:function(data){
-         var inputWords = $(this).val();
+         var inputWords = $(self).val();
          showResult(inputWords,data);
        }
      })
   });
-})
+
+});
+
 function timeFormat(timeStamp){
   var date = new Date(parseInt(timeStamp));
   return 'created@' + date.getFullYear() + '-' + (date.getMonth()+1) + '-' + (date.getDate()+1);
