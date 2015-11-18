@@ -19,7 +19,7 @@ $(document).ready(function(){
     var selectedData = bookmarks.filter(function(item){
       return reg.test(item.title);
     }).map(function(item){
-      item.title.replace(reg,'<span style="background-color:red">'+'$1'+'</span>');
+      item.title.replace(reg,'<span style="background-color:red">'+'$&'+'</span>');
       console.log(item);
       return item;
     })
