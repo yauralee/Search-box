@@ -13,14 +13,7 @@ $(document).ready(function(){
     },"");
     $('ul').html(searchResult);
   }
-  $.ajax({
-    url:"bookmarks.json",
-    type:"get",
-    dataType:"json",
-    success:function(data){
-      appendBookmarks(data);
-    }
-  })
+
 
   function showResult(keyWords,bookmarks){
     $("ul").html("");

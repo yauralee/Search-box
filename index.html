@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Design</title>
+  <title>search box</title>
   <meta charset="UTF-8">
+  <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="search.js"></script>
+  <script type="text/javascript">
+		$.ajax({
+      url:"bookmarks.json",
+      type:"get",
+      dataType:"json",
+      success:function(data){
+        appendBookmarks(data);
+      }
+		})
+	 </script>
 </head>
-<body">
+<body>
   <div>
-    <input type="text" id="KeywordInput"/>
+    <input type="text" id="keywordInput"/>
   </div>
-  <div>
-    <ul id="results">
+    <ul>
     </ul>
-  </div>
-  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="vendor/underscore/underscore-min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
