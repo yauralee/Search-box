@@ -23,7 +23,7 @@ $(document).ready(function(){
   })
 
   function showResult(keyWords,bookmarks){
-    $("#displayArea").html("");
+    $("ul").html("");
     var reg = new RegExp(keywords,"ig");
     var selectedData = bookmarks.filter(function(item){
       return reg.test(item.title);
