@@ -1,20 +1,5 @@
 $(document).ready(function(){
 
-  function timeFormat(timeStamp){
-    var date = new Date(parseInt(timeStamp));
-    return 'created@' + date.getFullYear() + '-' + (date.getMonth()+1) + '-' + (date.getDate()+1);
-  }
-  function appendBookmarks(data){
-    var searchResult = data.reduce(function(str,item){
-      str+="<li>"+data.title+"</li>";
-      str+="<li>"+timeFormat(data.created)+"</li>";
-      str+="<hr>";
-      return str;
-    },"");
-    $('ul').html(searchResult);
-  }
-
-
   function showResult(keyWords,bookmarks){
     $("ul").html("");
     var reg = new RegExp(keywords,"ig");
@@ -38,3 +23,16 @@ $(document).ready(function(){
      })
   });
 })
+function timeFormat(timeStamp){
+  var date = new Date(parseInt(timeStamp));
+  return 'created@' + date.getFullYear() + '-' + (date.getMonth()+1) + '-' + (date.getDate()+1);
+}
+function appendBookmarks(data){
+  var searchResult = data.reduce(function(str,item){
+    str+="<li>"+data.title+"</li>";
+    str+="<li>"+timeFormat(data.created)+"</li>";
+    str+="<hr>";
+    return str;
+  },"");
+  $('ul').html(searchResult);
+}
