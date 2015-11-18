@@ -1,28 +1,3 @@
-$(document).ready(function(){
-
-  function showResult(keyWords,bookmarks){
-    $("ul").html("");
-    var reg = new RegExp(keywords,"ig");
-    var selectedData = bookmarks.filter(function(item){
-      return reg.test(item.title);
-    }).map(function(item){
-      return item.title.replace(reg,'<span class="hightlightStyle">$1</span>');
-    })
-    appendBookmarks(selectedData);
-  }
-
-  $("#keywordInput").bind("input propertychange",function(){
-     $.ajax({
-       url:"bookmarks.json",
-       type:"get",
-       dataType:"json",
-       success:function(data){
-         var inputWords = $(this).val();
-         showResult(inputWords,data);
-       }
-     })
-  });
-})
 function timeFormat(timeStamp){
   var date = new Date(parseInt(timeStamp));
   return 'created@' + date.getFullYear() + '-' + (date.getMonth()+1) + '-' + (date.getDate()+1);
@@ -36,3 +11,30 @@ function appendBookmarks(data){
   },"");
   $('ul').html(searchResult);
 }
+
+$(document).ready(function(){
+  function showResult(keywords,bookmarks){
+    $("ul").html("");
+    var reg = new RegExp(keywords,"ig");
+    var selectedData = bookmarks.filter(function(item){
+      return reg.test(item.title);
+    }).map(function(item){
+      item.title.replace(reg,'<span style="background-color:red">'+'$1'+'</span>');
+      console.log(item);
+      return item;
+    })
+    appendBookmarks(selectedData);
+  }
+
+  $("#keywordInput").bind("input propertychange",function(){
+     $.ajax({
+       url:"bookmarks.json",
+       type:"get",
+       dataType:"json",
+       success:function(data){
+         var inputWords = $('#keywordInput').val();
+         showResult(inputWords,data);
+       }
+     })
+  });
+})
