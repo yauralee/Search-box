@@ -19,10 +19,9 @@ $(document).ready(function(){
     var selectedData = bookmarks.filter(function(item){
       return reg.test(item.title);
     }).map(function(item){
-      item.title.replace(reg,'<span style="background-color:red">'+'$&'+'</span>');
-      console.log(item);
+      item.title = item.title.replace(reg,'<span style="background-color:red">'+keywords+'</span>');
       return item;
-    })
+    });
     appendBookmarks(selectedData);
   }
 
