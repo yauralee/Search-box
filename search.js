@@ -29,8 +29,8 @@ function timeFormat(timeStamp){
 }
 function appendBookmarks(data){
   var searchResult = data.reduce(function(str,item){
-    str+="<li>"+data.title+"</li>";
-    str+="<li>"+timeFormat(data.created)+"</li>";
+    str+="<li>"+item.title+"</li>";
+    str+="<li>"+timeFormat(item.created)+"</li>";
     str+="<hr>";
     return str;
   },"");
