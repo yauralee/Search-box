@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   function timeFormat(timeStamp){
     var date = new Date(parseInt(timeStamp));
-    return "Created@"+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate()+1)；
+    return 'created@' + date.getFullYear() + '-' + (date.getMonth()+1) + '-' + (date.getDate()+1);
   }
   function appendBookmarks(data){
     var searchResult = data.reduce(function(str,item){
