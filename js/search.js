@@ -4,9 +4,8 @@ function timeFormat(timeStamp){
 }
 function appendBookmarks(data){
   var searchResult = data.reduce(function(str,item){
-    str+="<li>"+item.title+"</li>";
-    str+="<li>"+timeFormat(item.created)+"</li>";
-    str+="<hr>";
+    str+="<li class='bookmarkTitle'>"+item.title+"</li>";
+    str+="<li class='bookmarkCreated'>"+timeFormat(item.created)+"</li>";
     return str;
   },"");
   $('ul').html(searchResult);
@@ -19,7 +18,7 @@ $(document).ready(function(){
     var selectedData = bookmarks.filter(function(item){
       return reg.test(item.title);
     }).map(function(item){
-      item.title = item.title.replace(reg,'<span style="background-color:red">'+keywords+'</span>');
+      item.title = item.title.replace(reg,'<span style="background-color:#D58C87">'+keywords+'</span>');
       return item;
     });
     appendBookmarks(selectedData);
