@@ -21,7 +21,7 @@ new Vue({
 
   filters: {
       highlight: function(value) {
-        var reg = /code/gi;
+        var reg = new RegExp(this.mark, "gi");
         return value.replace(reg, this.highlightText('$&'));
       }
   }
