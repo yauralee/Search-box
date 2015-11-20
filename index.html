@@ -4,24 +4,26 @@
   <title>search box</title>
   <meta charset="UTF-8">
   <link href="stylesheets/bookmark.css" type="text/css" rel="stylesheet" >
-  <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
-  <script type="text/javascript" src="js/search.js"></script>
-  <script type="text/javascript">
-		$.ajax({
-      url:"bookmarks.json",
-      type:"get",
-      dataType:"json",
-      success:function(data){
-        appendBookmarks(data);
-      }
-		})
-	 </script>
 </head>
 <body>
-  <div>
-    <input type="text" id="keywordInput"/>
+  <div id="bookmarks">
+    <div class="search">
+      <input type="text" id="keywordInput"/>
+    </div>
+    <ul>
+      <li v-repeat="bookmarks">
+          <div class="bookmarkTitle">
+            {{title}}
+          </div>
+          <div class="bookmarkCreated">
+            {{created}}
+          </div>
+      </li>
+    </ul>
   </div>
-  <ul>
-  </ul>
+  <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="js/vendor/vue.min.js"></script>
+  <script type="text/javascript" src="js/vendor/vue-resource.min.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
 </body>
 </html>
