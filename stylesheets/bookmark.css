@@ -38,3 +38,7 @@ ul {
   padding-bottom: 8px;
   border-bottom: dashed 1px rgb(98,95,95);
 }
+
+.highlight {
+  background-color:#D58C87;
+}

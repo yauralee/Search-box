@@ -13,7 +13,7 @@
     <ul>
       <li v-repeat="bookmarks | filterBy mark in 'title' ">
           <div class="bookmarkTitle">
-            {{title}}
+            {{{ title | highlight }}}
           </div>
           <div class="bookmarkCreated">
             {{created}}
