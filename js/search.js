@@ -12,6 +12,14 @@ function appendBookmarks(data){
 }
 
 $(document).ready(function(){
+  $.ajax({
+    url:"bookmarks.json",
+    type:"get",
+    dataType:"json",
+    success:function(data){
+      appendBookmarks(data);
+    }
+  })
   function showResult(keywords,bookmarks){
     $("ul").html("");
     var reg = new RegExp(keywords,"ig");
@@ -35,4 +43,5 @@ $(document).ready(function(){
        }
      })
   });
+
 })
