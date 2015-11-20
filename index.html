@@ -8,10 +8,10 @@
 <body>
   <div id="bookmarks">
     <div class="search">
-      <input type="text" id="keywordInput"/>
+      <input type="text" class="search-input" v-model="mark" name="searchMark"/>
     </div>
     <ul>
-      <li v-repeat="bookmarks">
+      <li v-repeat="bookmarks | filterBy mark in 'title' ">
           <div class="bookmarkTitle">
             {{title}}
           </div>
